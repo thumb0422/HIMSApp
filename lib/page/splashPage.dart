@@ -29,10 +29,15 @@ class SplashPage extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) {
-                          return new HomePage();
+                          return HomePage();
                         },
                       ),
                     );
+                  //无返回按钮
+//                    Navigator.pushAndRemoveUntil(
+//                        context,
+//                        MaterialPageRoute(builder: (context) => HomePage()),
+//                        (_) => false);
                   })
             ],
           ),
