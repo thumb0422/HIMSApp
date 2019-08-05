@@ -18,6 +18,9 @@ class _HomePage extends State<HomePage> {
 
   void refreshData() {
     _future = getMaindata();
+    setState(() {
+
+    });
   }
 
   @override
@@ -30,32 +33,24 @@ class _HomePage extends State<HomePage> {
       ),
       backgroundColor: Colors.white,
       body: Container(
-        child: FutureBuilder<List<int>>(
+        child: FutureBuilder(
             future: _future,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                List<Widget> widgets = List();
                 List<int> datas = snapshot.data;
-                datas.forEach((item) {
-                  widgets.add(SingleView(
-                    data: item,
-                    callback: () {
-//                        Navigator.push(
-//                            context,
-//                            MaterialPageRoute(
-//                                builder: (context) => ListPage(
-//                                  data: item,
-//                                )));
-                    },
-                  ));
-                });
-                return Wrap(
-                  spacing: 10,
-                  runSpacing: 30,
-                  alignment: WrapAlignment.start,
-                  runAlignment: WrapAlignment.spaceBetween,
-                  crossAxisAlignment: WrapCrossAlignment.end,
-                  children: widgets,
+                return Container(
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    padding: EdgeInsets.all(5),
+                    children: List.generate(datas.length, (index) {
+                      return Center(
+                        child: SingleView(
+                          data: datas[index],
+                          callback: () {},
+                        ),
+                      );
+                    }),
+                  ),
                 );
               }
               return Center(
