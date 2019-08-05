@@ -20,7 +20,8 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^2.1.13
-  pull_to_refresh: ^1.5.3
+#  pull_to_refresh: ^1.5.3
+#  liquid_pull_to_refresh: ^1.1.1
   sqflite: ^1.1.6
 
   # The following adds the Cupertino Icons font to your application.

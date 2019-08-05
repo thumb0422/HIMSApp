@@ -12,7 +12,7 @@ Future<List<int>> getMaindata() async {
 //    TypeModel typeModel = TypeModel.fromJson(item);
 //    resultList.add(typeModel);
 //  });
-  int total = Random(1).nextInt(20);
+  int total = Random().nextInt(20);
   for (var i = 0; i < total; i++) {
     resultList.add(i);
   }
