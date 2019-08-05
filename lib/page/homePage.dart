@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../tool.dart';
 import '../view/singleView.dart';
+import '../page/detailPage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,9 +19,7 @@ class _HomePage extends State<HomePage> {
 
   void refreshData() {
     _future = getMaindata();
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
@@ -29,7 +28,7 @@ class _HomePage extends State<HomePage> {
       appBar: AppBar(
         title: Text('Hims'),
         centerTitle: true,
-        automaticallyImplyLeading: false, //无返回按钮
+//        automaticallyImplyLeading: false, //无返回按钮  todo :这个跟Drawer冲突
       ),
       backgroundColor: Colors.white,
       body: Container(
@@ -46,7 +45,18 @@ class _HomePage extends State<HomePage> {
                       return Center(
                         child: SingleView(
                           data: datas[index],
-                          callback: () {},
+                          callback: () {
+                            Navigator.push<Object>(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) {
+                                  return DetailPage(
+                                    data: datas[index].toString(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                       );
                     }),
@@ -67,6 +77,30 @@ class _HomePage extends State<HomePage> {
         child: Text('刷新'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      drawer: Drawer(
+//        semanticLabel: 'asdasdasd',
+        child: ListView(
+          padding: EdgeInsets.only(top: 120),
+          children: <Widget>[
+            ListTile(title: Text('Item 1'),
+              leading: new CircleAvatar(child: new Icon(Icons.school),),
+              onTap: () {
+                Navigator.pop(context);
+              },),
+            ListTile(title: Text('Item 2'),
+              leading: new CircleAvatar(child: new Text('B2'),),
+              onTap: () {
+                Navigator.pop(context);
+              },),
+            ListTile(title: Text('Item 3'),
+              leading: new CircleAvatar(
+                child: new Icon(Icons.list),),
+              onTap: () {
+                Navigator.pop(context);
+              },),
+          ],
+        ),
+      ),
     );
   }
 }

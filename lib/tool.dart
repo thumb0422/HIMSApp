@@ -18,3 +18,16 @@ Future<List<int>> getMaindata() async {
   }
   return resultList;
 }
+
+
+Future<List<String>> getDetailDataByKey({key:String}) async {
+  List<String> resultList = List();
+//  String jsonData = await rootBundle.loadString('assets/typeConfig.json');
+//  List list = json.decode(jsonData);
+//  list.forEach((item){
+//    TypeModel typeModel = TypeModel.fromJson(item);
+//    resultList.add(typeModel);
+//  });
+
+  return resultList;
+}

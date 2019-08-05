@@ -25,19 +25,19 @@ class SplashPage extends StatelessWidget {
                   color: Colors.red,
                   onPressed: () {
                     //to homePage
-                    Navigator.push<Object>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) {
-                          return HomePage();
-                        },
-                      ),
-                    );
-                  //无返回按钮
-//                    Navigator.pushAndRemoveUntil(
-//                        context,
-//                        MaterialPageRoute(builder: (context) => HomePage()),
-//                        (_) => false);
+//                    Navigator.push<Object>(
+//                      context,
+//                      MaterialPageRoute(
+//                        builder: (BuildContext context) {
+//                          return HomePage();
+//                        },
+//                      ),
+//                    );
+                  //todo :无返回按钮
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                        (_) => false);
                   })
             ],
           ),
